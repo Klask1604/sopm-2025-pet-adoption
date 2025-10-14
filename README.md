@@ -1,3 +1,7 @@
+#Denumire Branchuri 
+## [initialaPrenume][numeFamilie] / feature
+# ex : adoltu/adoption-page
+
 # 📚 Git - Toate Comenzile Explicate Simplu
 
 Un ghid complet pentru comenzile Git, explicat ca la prosti (fără supărare 😄).
