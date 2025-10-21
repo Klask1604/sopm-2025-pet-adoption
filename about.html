@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Pet Adoption Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .scale-in {
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        /* Staggered animation delays for pet cards */
+        .pet-card:nth-child(1) { animation-delay: 0.1s; }
+        .pet-card:nth-child(2) { animation-delay: 0.2s; }
+        .pet-card:nth-child(3) { animation-delay: 0.3s; }
+        .pet-card:nth-child(4) { animation-delay: 0.4s; }
+        .pet-card:nth-child(5) { animation-delay: 0.5s; }
+        .pet-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+    
+    <!-- ========================================
+         NAVIGATION BAR
+         Consistent navigation across all pages
+    ========================================= -->
+    <nav class="bg-green-900 text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="text-2xl font-bold">
+                🐾 Pet Adoption Center
+            </div>
+            
+            <!-- Navigation Links -->
+            <ul class="flex gap-8">
+                <li><a href="index.html" class="hover:text-green-300 transition-colors">Home</a></li>
+                <li><a href="pets.html" class="hover:text-green-300 transition-colors">Available Pets</a></li>
+                <li><a href="about.html" class="hover:text-green-300 transition-colors font-semibold">About Us</a></li>
+                <li><a href="contact.html" class="hover:text-green-300 transition-colors">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    
+
+    <!-- ========================================
+         FOOTER
+         Site-wide footer
+    ========================================= -->
+    <footer class="bg-green-900 text-white text-center py-8 mt-12">
+        <p class="mb-2">&copy; 2025 Pet Adoption Center. All rights reserved.</p>
+        <p class="text-sm text-green-300">Making tails wag since 2015</p>
+    </footer>
+
+    <!-- ========================================
+         EXTERNAL JAVASCRIPT
+         Link to pets page script file
+    ========================================= -->
+    <script src="scripts/about.js"></script>
+
+</body>
+</html>
