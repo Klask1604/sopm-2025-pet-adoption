@@ -1,99 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Pet Adoption Center</title>
+    <title>About Us - PawsHome</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.6s ease-in;
-        }
-
-        .slide-up {
-            animation: slideUp 0.8s ease-out;
-        }
-
-        .scale-in {
-            animation: scaleIn 0.5s ease-out;
-        }
-
-        /* Staggered animation delays for pet cards */
-        .pet-card:nth-child(1) { animation-delay: 0.1s; }
-        .pet-card:nth-child(2) { animation-delay: 0.2s; }
-        .pet-card:nth-child(3) { animation-delay: 0.3s; }
-        .pet-card:nth-child(4) { animation-delay: 0.4s; }
-        .pet-card:nth-child(5) { animation-delay: 0.5s; }
-        .pet-card:nth-child(6) { animation-delay: 0.6s; }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="font-sans text-gray-800 bg-gray-50">
-    
-    <!-- ========================================
-         NAVIGATION BAR
-         Consistent navigation across all pages
-    ========================================= -->
-    <nav class="bg-green-900 text-white sticky top-0 z-50 shadow-lg">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo -->
-            <div class="text-2xl font-bold">
-                🐾 Pet Adoption Center
+
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-paw text-3xl text-green-500"></i>
+                    <span class="text-2xl font-bold text-green-600">PawsHome</span>
+                </div>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="index.html" class="text-gray-800 hover:text-green-600 font-medium">Home</a></li>
+                    <li><a href="pets.html" class="text-gray-800 hover:text-green-600 font-medium">Available Pets</a>
+                    </li>
+                    <li><a href="about.html" class="text-green-600 font-medium">About Us</a></li>
+                    <li><a href="contact.html" class="text-gray-800 hover:text-green-600 font-medium">Contact</a></li>
+                </ul>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-800 text-2xl"><i
+                        class="fas fa-bars"></i></button>
             </div>
-            
-            <!-- Navigation Links -->
-            <ul class="flex gap-8">
-                <li><a href="index.html" class="hover:text-green-300 transition-colors">Home</a></li>
-                <li><a href="pets.html" class="hover:text-green-300 transition-colors">Available Pets</a></li>
-                <li><a href="about.html" class="hover:text-green-300 transition-colors font-semibold">About Us</a></li>
-                <li><a href="contact.html" class="hover:text-green-300 transition-colors">Contact</a></li>
-            </ul>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="block py-2 text-gray-800 hover:text-green-600">Home</a></li>
+                    <li><a href="pets.html" class="block py-2 text-gray-800 hover:text-green-600">Available Pets</a>
+                    </li>
+                    <li><a href="about.html" class="block py-2 text-green-600">About Us</a></li>
+                    <li><a href="contact.html" class="block py-2 text-gray-800 hover:text-green-600">Contact</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    
+    <!-- Page Header -->
+    <section class="bg-gradient-to-r from-green-700 to-green-500 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4">About PawsHome</h1>
+            <p class="text-xl">Our mission to connect pets with loving families</p>
+        </div>
+    </section>
 
-    <!-- ========================================
-         FOOTER
-         Site-wide footer
-    ========================================= -->
-    <footer class="bg-green-900 text-white text-center py-8 mt-12">
-        <p class="mb-2">&copy; 2025 Pet Adoption Center. All rights reserved.</p>
-        <p class="text-sm text-green-300">Making tails wag since 2015</p>
+    <!-- Our Story -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Our Story</h2>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Founded in 2020, PawsHome began with a simple vision: to ensure that every pet finds a loving,
+                        forever home. What started as a small volunteer operation in Brasov has grown into one of
+                        Romania's most trusted pet adoption organizations.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        We believe that every animal deserves a second chance at happiness. Our dedicated team works
+                        tirelessly to rescue, rehabilitate, and rehome abandoned and surrendered pets. We provide
+                        medical care, behavioral training, and lots of love to prepare our animals for their new
+                        families.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Over the years, we've successfully placed over 2,000 pets in loving homes, and we're just
+                        getting started. Every adoption is a celebration, and every pet that finds their forever family
+                        reminds us why we do what we do.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Values -->
+    <section class="bg-green-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Mission & Values</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-4xl mb-4 text-center text-green-600"><i class="fas fa-bullseye"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 text-center">Our Mission</h3>
+                    <p class="text-gray-600 text-center">To rescue and rehome pets while promoting responsible pet
+                        ownership and animal welfare.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-4xl mb-4 text-center text-red-500"><i class="fas fa-heart"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 text-center">Compassion</h3>
+                    <p class="text-gray-600 text-center">We treat every animal with kindness, respect, and the care they
+                        deserve.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-4xl mb-4 text-center text-green-600"><i class="fas fa-handshake"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 text-center">Commitment</h3>
+                    <p class="text-gray-600 text-center">We're dedicated to finding the perfect match between pets and
+                        their new families.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-4xl mb-4 text-center text-yellow-500"><i class="fas fa-star"></i></div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800 text-center">Excellence</h3>
+                    <p class="text-gray-600 text-center">We maintain the highest standards in animal care and adoption
+                        services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Our Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-green-600 mb-2" data-count="2000">0</div>
+                    <p class="text-gray-700 font-medium">Pets Adopted</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-green-700 mb-2" data-count="150">0</div>
+                    <p class="text-gray-700 font-medium">Volunteers</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-green-600 mb-2" data-count="5">0</div>
+                    <p class="text-gray-700 font-medium">Years of Service</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-red-600 mb-2" data-count="98">0</div>
+                    <p class="text-gray-700 font-medium">Success Rate %</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Adoption Process -->
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">The Adoption Process</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div
+                            class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-green-600 mx-auto mb-4">
+                            1</div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Browse Pets</h3>
+                        <p class="text-gray-600 text-sm">Explore our available animals and find your perfect match.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div
+                            class="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-green-700 mx-auto mb-4">
+                            2</div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Apply</h3>
+                        <p class="text-gray-600 text-sm">Fill out an adoption application form and tell us about
+                            yourself.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div
+                            class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-green-600 mx-auto mb-4">
+                            3</div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Meet & Greet</h3>
+                        <p class="text-gray-600 text-sm">Visit our shelter to meet your chosen pet in person.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                        <div
+                            class="bg-red-100 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold text-red-600 mx-auto mb-4">
+                            4</div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Take Home</h3>
+                        <p class="text-gray-600 text-sm">Complete the paperwork and bring your new friend home!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="bg-gradient-to-r from-green-700 to-green-500 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-6">Join Our Mission</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Whether you want to adopt, volunteer, or support our cause,
+                there's a place for you at PawsHome.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="pets.html"
+                    class="bg-white text-green-700 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition">Browse
+                    Pets</a>
+                <a href="contact.html"
+                    class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-green-700 transition">Contact
+                    Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-paw text-3xl text-green-500"></i>
+                        <span class="text-2xl font-bold">PawsHome</span>
+                    </div>
+                    <p class="text-gray-400">Connecting loving homes with pets in need since 2020.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="pets.html" class="text-gray-400 hover:text-white">Available Pets</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-envelope mr-2"></i> info@pawshome.com</p>
+                    <p class="text-gray-400 mb-2"><i class="fas fa-phone mr-2"></i> +40 123 456 789</p>
+                    <p class="text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> Brasov, Romania</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 PawsHome. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- ========================================
-         EXTERNAL JAVASCRIPT
-         Link to pets page script file
-    ========================================= -->
-    <script src="scripts/about.js"></script>
-
+    <script src="script.js"></script>
 </body>
+
 </html>
