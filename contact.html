@@ -155,7 +155,84 @@
         </div>
     </section>
 
-    <!-- Footer -->
+
+    <!-- FAQ Section -->
+    <section class="bg-green-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Frequently Asked Questions</h2>
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left px-6 py-4 font-bold text-gray-800 hover:bg-gray-50 flex justify-between items-center">
+                        <span>What is the adoption fee?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 text-gray-600 border-t">
+                        Adoption fees vary depending on the animal but typically range from 200-400 RON. This fee covers
+                        vaccinations, spaying/neutering, microchipping, and initial veterinary care.
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left px-6 py-4 font-bold text-gray-800 hover:bg-gray-50 flex justify-between items-center">
+                        <span>Can I meet a pet before adopting?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 text-gray-600 border-t">
+                        Absolutely! We encourage all potential adopters to visit our shelter and spend time with the
+                        pets. You can schedule a meet-and-greet by contacting us through this form or calling our
+                        office.
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left px-6 py-4 font-bold text-gray-800 hover:bg-gray-50 flex justify-between items-center">
+                        <span>What is the adoption process timeline?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 text-gray-600 border-t">
+                        The adoption process typically takes 3-7 days. This includes application review, home visit (if
+                        required), meet-and-greet, and final paperwork. We want to ensure the best match for both you
+                        and the pet.
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <button
+                        class="faq-question w-full text-left px-6 py-4 font-bold text-gray-800 hover:bg-gray-50 flex justify-between items-center">
+                        <span>Do you accept donations?</span>
+                        <span class="text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer hidden px-6 py-4 text-gray-600 border-t">
+                        Yes! We greatly appreciate donations of any kind - monetary contributions, pet food, toys,
+                        blankets, and other supplies. Contact us to learn more about how you can help support our
+                        mission.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Success Modal -->
+    <div id="success-modal"
+        class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-md w-full p-8 text-center transform transition-all">
+            <div class="mb-6">
+                <div class="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-green-100 mb-4">
+                    <i class="fas fa-check text-3xl text-green-600"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Thank You!</h3>
+                <p class="text-gray-600">
+                    Your request is being processed and you will soon be called by our team for confirmation.
+                </p>
+            </div>
+            <button id="close-success-modal"
+                class="w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition">
+                Close
+            </button>
+        </div>
+    </div>
+
     <footer class="bg-gray-800 text-white py-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
