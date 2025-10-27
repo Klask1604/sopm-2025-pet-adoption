@@ -194,6 +194,40 @@ const pets = [
     }
 ];
 
+// Mobile Menu Toggle
+document.addEventListener('DOMContentLoaded', function ()
+{
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu)
+    {
+        mobileMenuBtn.addEventListener('click', function ()
+        {
+            mobileMenu.classList.toggle('hidden');
+        });
+    }
+
+    // Load page-specific content
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+
+    if (currentPage === 'index.html' || currentPage === '')
+    {
+        loadFeaturedPets();
+    } else if (currentPage === 'pets.html')
+    {
+        loadAllPets();
+        setupFilters();
+    } else if (currentPage === 'about.html')
+    {
+        animateStats();
+    } else if (currentPage === 'contact.html')
+    {
+        setupContactForm();
+        setupFAQ();
+    }
+});
+
 // Create Pet Card HTML
 function createPetCard(pet)
 {
@@ -221,6 +255,15 @@ function createPetCard(pet)
     `;
 }
 
+// Load Featured Pets (Homepage)
+function loadFeaturedPets()
+{
+    const container = document.getElementById('featured-pets');
+    if (!container) return;
+
+    const featuredPets = pets.filter(pet => pet.featured);
+    container.innerHTML = featuredPets.map(pet => createPetCard(pet)).join('');
+}
 
 // Load All Pets (Pets Page)
 function loadAllPets(filteredPets = null)
@@ -247,6 +290,52 @@ function loadAllPets(filteredPets = null)
     }
 }
 
+// Setup Filters
+function setupFilters()
+{
+    const typeFilter = document.getElementById('filter-type');
+    const ageFilter = document.getElementById('filter-age');
+    const sizeFilter = document.getElementById('filter-size');
+    const resetBtn = document.getElementById('reset-filters');
+
+    function applyFilters()
+    {
+        const type = typeFilter.value;
+        const age = ageFilter.value;
+        const size = sizeFilter.value;
+
+        let filtered = pets;
+
+        if (type !== 'all')
+        {
+            filtered = filtered.filter(pet => pet.type === type);
+        }
+
+        if (age !== 'all')
+        {
+            filtered = filtered.filter(pet => pet.age === age);
+        }
+
+        if (size !== 'all')
+        {
+            filtered = filtered.filter(pet => pet.size === size);
+        }
+
+        loadAllPets(filtered);
+    }
+
+    typeFilter.addEventListener('change', applyFilters);
+    ageFilter.addEventListener('change', applyFilters);
+    sizeFilter.addEventListener('change', applyFilters);
+
+    resetBtn.addEventListener('click', function ()
+    {
+        typeFilter.value = 'all';
+        ageFilter.value = 'all';
+        sizeFilter.value = 'all';
+        loadAllPets();
+    });
+}
 
 // Show Pet Modal
 function showPetModal(petId)
@@ -287,7 +376,7 @@ function showPetModal(petId)
             </div>
             <div>
                 <p class="text-gray-600 font-medium">Vaccinated</p>
-                <p class="text-gray-800 font-bold">${pet.vaccinated ? ' Yes' : ' No'}</p>
+                <p class="text-gray-800 font-bold">${pet.vaccinated ? '✅ Yes' : '❌ No'}</p>
             </div>
         </div>
         <div class="mt-4">
@@ -307,16 +396,116 @@ function showPetModal(petId)
     };
 }
 
-
-document.addEventListener('DOMContentLoaded', function ()
+// Animate Statistics (About Page)
+function animateStats()
 {
-    // Load page-specific content
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const stats = document.querySelectorAll('[data-count]');
 
-    if (currentPage === 'pets.html')
+    if (stats.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) =>
     {
-        loadAllPets();
-        setupFilters();
+        entries.forEach(entry =>
+        {
+            if (entry.isIntersecting)
+            {
+                const target = parseInt(entry.target.getAttribute('data-count'));
+                animateValue(entry.target, 0, target, 2000);
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+
+    stats.forEach(stat => observer.observe(stat));
+}
+
+function animateValue(element, start, end, duration)
+{
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+
+    const timer = setInterval(() =>
+    {
+        current += increment;
+        if (current >= end)
+        {
+            element.textContent = end;
+            clearInterval(timer);
+        } else
+        {
+            element.textContent = Math.floor(current);
+        }
+    }, 16);
+}
+
+// Setup Contact Form
+function setupContactForm()
+{
+    const form = document.getElementById('contact-form');
+    const successModal = document.getElementById('success-modal');
+    const closeModalBtn = document.getElementById('close-success-modal');
+
+    if (!form) return;
+
+    form.addEventListener('submit', function (e)
+    {
+        e.preventDefault();
+
+        // Show success modal
+        successModal.classList.remove('hidden');
+
+        // Reset form
+        form.reset();
+    });
+
+    // Close modal handler
+    if (closeModalBtn)
+    {
+        closeModalBtn.addEventListener('click', function ()
+        {
+            successModal.classList.add('hidden');
+        });
     }
 
-});
+    // Close modal when clicking outside
+    if (successModal)
+    {
+        successModal.addEventListener('click', function (e)
+        {
+            if (e.target === successModal)
+            {
+                successModal.classList.add('hidden');
+            }
+        });
+    }
+}
+
+// Setup FAQ Accordion
+function setupFAQ()
+{
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question =>
+    {
+        question.addEventListener('click', function ()
+        {
+            const answer = this.nextElementSibling;
+            const icon = this.querySelector('span:last-child');
+
+            // Close other open FAQs
+            document.querySelectorAll('.faq-answer').forEach(otherAnswer =>
+            {
+                if (otherAnswer !== answer && !otherAnswer.classList.contains('hidden'))
+                {
+                    otherAnswer.classList.add('hidden');
+                    otherAnswer.previousElementSibling.querySelector('span:last-child').textContent = '+';
+                }
+            });
+
+            // Toggle current FAQ
+            answer.classList.toggle('hidden');
+            icon.textContent = answer.classList.contains('hidden') ? '+' : '−';
+        });
+    });
+}

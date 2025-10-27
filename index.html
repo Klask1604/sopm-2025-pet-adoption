@@ -54,7 +54,21 @@
         </div>
     </section>
 
-   
+
+    <!-- Featured Pets -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Featured Pets</h2>
+            <div id="featured-pets" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Pets will be loaded by JavaScript -->
+            </div>
+            <div class="text-center mt-12">
+                <a href="pets.html"
+                    class="bg-green-600 text-white px-8 py-3 rounded-full font-bold hover:bg-green-700 transition inline-block">View
+                    All Pets</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Why Adopt Section -->
     <section class="bg-green-50 py-16">
@@ -98,6 +112,27 @@
             </div>
         </div>
     </section>
+
+    <!-- Pet Modal -->
+    <div id="pet-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-screen overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 id="modal-name" class="text-3xl font-bold text-gray-800"></h2>
+                    <button id="close-modal" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+                </div>
+                <div id="modal-image" class="mb-4 rounded-lg overflow-hidden"></div>
+                <div id="modal-details" class="space-y-3"></div>
+                <div class="mt-6 flex gap-4">
+                    <a href="contact.html"
+                        class="flex-1 bg-green-600 text-white text-center px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition">Adopt
+                        Me!</a>
+                    <button id="close-modal-btn"
+                        class="flex-1 bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-400 transition">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
